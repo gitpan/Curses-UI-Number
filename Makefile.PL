@@ -10,7 +10,7 @@ abstract 'Create and manipulate number widgets.';
 author 'Michal Špaček <skim@cpan.org>';
 license 'bsd';
 name 'Curses-UI-Number';
-requires 'Curses' => 0;
+requires 'Curses::UI' => 0;
 requires 'Encode' => 0;
 readme_from 'Number.pm';
 resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
@@ -23,7 +23,7 @@ test_requires 'Test::NoWarnings' => 0;
 test_requires 'Test::Pod' => 0;
 test_requires 'Test::Pod::Coverage' => 0;
 tests_recursive;
-version '0.01';
+version '0.02';
 
 # Run.
 WriteAll();
