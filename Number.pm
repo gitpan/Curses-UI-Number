@@ -9,9 +9,16 @@ use warnings;
 use Curses::UI::Common qw(keys_to_lowercase);
 use Curses::UI::Label;
 use Encode qw(decode_utf8);
+use Readonly;
+
+# Constants.
+Readonly::Scalar our $BLANK_PIXEL => q{  };
+Readonly::Scalar our $EMPTY_STR => q{};
+Readonly::Scalar our $PIXELS => 14;
+Readonly::Scalar our $PIXELS_ON_LINE => 3;
 
 # Version.
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 # Constructor.
 sub new {
@@ -66,15 +73,15 @@ sub _num {
 # Convert number to text.
 sub _text {
 	my ($char, $number) = @_;
-	my $text = '';
+	my $text = $EMPTY_STR;
 	my $num_ar = _num($number);
-	foreach my $i (0 .. 14) {
+	foreach my $i (0 .. $PIXELS) {
 		if ($num_ar->[$i]) {
 			$text .= $char x 2;
 		} else {
-			$text .= '  ';
+			$text .= $BLANK_PIXEL;
 		}
-		if ($i != 14 && ($i + 1) % 3 == 0) {
+		if ($i != $PIXELS && ($i + 1) % $PIXELS_ON_LINE == 0) {
 			$text .= "\n";
 		}
 	}
@@ -82,6 +89,8 @@ sub _text {
 }
 
 1;
+
+__END__
 
 =pod
 
@@ -273,6 +282,6 @@ To Czech Perl Workshop 2014 and their organizers.
 
 =head1 VERSION
 
-0.02
+0.03
 
 =cut
