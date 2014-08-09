@@ -18,7 +18,7 @@ Readonly::Scalar our $PIXELS => 14;
 Readonly::Scalar our $PIXELS_ON_LINE => 3;
 
 # Version.
-our $VERSION = 0.04;
+our $VERSION = 0.05;
 
 # Constructor.
 sub new {
@@ -205,6 +205,13 @@ L<Curses::UI::Widget|Curses::UI::Widget>.
  # Loop.
  $cui->mainloop;
 
+ # Output like:
+ # ██████
+ # ██
+ # ██████
+ #     ██
+ # ██████
+
 =head1 EXAMPLE2
 
  # Pragmas.
@@ -250,6 +257,15 @@ L<Curses::UI::Widget|Curses::UI::Widget>.
  # Loop.
  $cui->mainloop;
 
+ # Output like:
+ # ┌──────┐
+ # │██████│
+ # │██  ██│
+ # │██████│
+ # │██  ██│
+ # │██████│
+ # └──────┘
+
 =head1 DEPENDENCIES
 
 L<Curses::UI::Common>,
@@ -282,6 +298,6 @@ To Czech Perl Workshop 2014 and their organizers.
 
 =head1 VERSION
 
-0.04
+0.05
 
 =cut
